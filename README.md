@@ -42,7 +42,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import roundNearestEven from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round-nearest-even@esm/index.mjs';
+import roundNearestEven from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round-nearest-even@v0.1.1-esm/index.mjs';
 ```
 
 #### roundNearestEven( x )
@@ -114,7 +114,7 @@ v = roundNearestEven( NaN );
 
 import uniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-uniform@esm/index.mjs';
 import logEachMap from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each-map@esm/index.mjs';
-import roundNearestEven from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round-nearest-even@esm/index.mjs';
+import roundNearestEven from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round-nearest-even@v0.1.1-esm/index.mjs';
 
 var opts = {
     'dtype': 'float64'
