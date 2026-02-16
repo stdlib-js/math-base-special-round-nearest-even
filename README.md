@@ -35,43 +35,32 @@ limitations under the License.
 
 > Round a double-precision floating-point number to the nearest integer value with ties rounding to the nearest even integer.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/math-base-special-round-nearest-even
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-roundNearestEven = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round-nearest-even@umd/browser.js' )
-```
-The previous example will load the latest bundled code from the umd branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/math-base-special-round-nearest-even/tags). For example,
-
-```javascript
-roundNearestEven = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round-nearest-even@v0.1.1-umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var roundNearestEven = require( 'path/to/vendor/umd/math-base-special-round-nearest-even/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round-nearest-even@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.roundNearestEven;
-})();
-</script>
+var roundNearestEven = require( '@stdlib/math-base-special-round-nearest-even' );
 ```
 
 #### roundNearestEven( x )
@@ -135,15 +124,10 @@ v = roundNearestEven( NaN );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each-map@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round-nearest-even@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var uniform = require( '@stdlib/random-array-uniform' );
+var logEachMap = require( '@stdlib/console-log-each-map' );
+var roundNearestEven = require( '@stdlib/math-base-special-round-nearest-even' );
 
 var opts = {
     'dtype': 'float64'
@@ -151,11 +135,6 @@ var opts = {
 var x = uniform( 100, -50.0, 50.0, opts );
 
 logEachMap( 'roundNearestEven(%.4f) = %.4f', x, roundNearestEven );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -164,7 +143,88 @@ logEachMap( 'roundNearestEven(%.4f) = %.4f', x, roundNearestEven );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/math/base/special/round_nearest_even.h"
+```
+
+#### stdlib_base_round_nearest_even( x )
+
+Rounds a double-precision floating-point number to the nearest integer value with ties rounding to the nearest even integer.
+
+```c
+double out = stdlib_base_round_nearest_even( -4.5 );
+// returns -4.0
+```
+
+The function accepts the following arguments:
+
+-   **x**: `[in] double` input value.
+
+```c
+double stdlib_base_round_nearest_even( const double x );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/math/base/special/round_nearest_even.h"
+#include <stdio.h>
+
+int main( void ) {
+    const double x[] = { -5.0, -3.89, -2.78, -1.67, -0.50, 0.50, 1.67, 2.78, 3.89, 5.0 };
+
+    double v;
+    int i;
+    for ( i = 0; i < 10; i++ ) {
+        v = stdlib_base_round_nearest_even( x[ i ] );
+        printf( "roundNearestEven(%lf) = %lf\n", x[ i ], v );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -213,8 +273,8 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/math-base-special-round-nearest-even.svg
 [npm-url]: https://npmjs.org/package/@stdlib/math-base-special-round-nearest-even
 
-[test-image]: https://github.com/stdlib-js/math-base-special-round-nearest-even/actions/workflows/test.yml/badge.svg?branch=v0.1.1
-[test-url]: https://github.com/stdlib-js/math-base-special-round-nearest-even/actions/workflows/test.yml?query=branch:v0.1.1
+[test-image]: https://github.com/stdlib-js/math-base-special-round-nearest-even/actions/workflows/test.yml/badge.svg?branch=main
+[test-url]: https://github.com/stdlib-js/math-base-special-round-nearest-even/actions/workflows/test.yml?query=branch:main
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/math-base-special-round-nearest-even/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/math-base-special-round-nearest-even?branch=main
